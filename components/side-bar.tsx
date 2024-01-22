@@ -6,7 +6,16 @@ import {
   AccordionTrigger,
 } from '@/components/accordion'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
-import { Home, Users, GanttChartSquare, Settings, BarChart3, MessageSquareDot, MessageCircleQuestion, LogOut} from 'lucide-react'
+import {
+  Home,
+  Users,
+  GanttChartSquare,
+  Settings,
+  BarChart3,
+  MessageSquareDot,
+  MessageCircleQuestion,
+  LogOut,
+} from 'lucide-react'
 import SidebarItem from './side-bar-item'
 
 export default function Sidebar() {
@@ -16,7 +25,7 @@ export default function Sidebar() {
 
   return (
     <main>
-      <ScrollArea className="sticky z-50 flex h-screen w-80 flex-col px-3 py-6 text-xl shadow-lg ">
+      <ScrollArea className="sticky z-50 flex h-screen w-80 flex-col px-3 py-6 text-xl shadow-lg">
         <div className="flex items-center pb-12">
           <Avatar>
             <AvatarImage src={image}></AvatarImage>
@@ -24,7 +33,7 @@ export default function Sidebar() {
           </Avatar>
           <span className="px-3">{name}</span>
         </div>
-        
+
         <SidebarItem name="Home" image={<Home />} />
         <SidebarItem name="Patients" image={<Users />} />
         <Accordion
@@ -51,7 +60,10 @@ export default function Sidebar() {
         </Accordion>
         <SidebarItem name="Settings" image={<Settings />} />
         <SidebarItem name="Reports/Analytics" image={<BarChart3 />} />
-        <SidebarItem name="Messages/Notifications" image={<MessageSquareDot />} />
+        <SidebarItem
+          name="Messages/Notifications"
+          image={<MessageSquareDot />}
+        />
         <SidebarItem name="Support/Help" image={<MessageCircleQuestion />} />
         <SidebarItem name="Sign Out" image={<LogOut />} />
       </ScrollArea>
