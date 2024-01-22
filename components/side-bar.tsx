@@ -6,6 +6,7 @@ import {
   AccordionTrigger,
 } from '@/components/accordion'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
+import SidebarItem from './side-bar-item'
 
 export default function Sidebar() {
   let name: string = 'Steven Lim'
