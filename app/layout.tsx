@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import PageHeader from '@/components/page-header'
+import Sidebar from '@/components/side-bar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +18,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="relative items-center justify-center">
+          <PageHeader />
+        </div>
+        <div>
+          <Sidebar />
+        </div>
+        {children}
+      </body>
     </html>
   )
 }
