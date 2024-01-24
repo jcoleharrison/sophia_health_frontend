@@ -22,10 +22,10 @@ export default function RootLayout({
         <div className="relative items-center justify-center">
           <PageHeader />
         </div>
-        <div>
+        <div className="flex">
           <Sidebar />
+          {children}
         </div>
-        {children}
       </body>
     </html>
   )
