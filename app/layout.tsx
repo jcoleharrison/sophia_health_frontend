@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import PageHeader from '@/components/page-header'
 import Sidebar from '@/components/side-bar'
+import CardWithForm from '@/components/note-generator/soap-element-card'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,13 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="relative items-center justify-center">
+        <div className="flex h-screen flex-col">
           <PageHeader />
+          <div className="flex flex-grow overflow-auto">
+            <Sidebar />
+            {children}
+          </div>
         </div>
-        <div>
-          <Sidebar />
-        </div>
-        {children}
       </body>
     </html>
   )
