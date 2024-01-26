@@ -43,7 +43,7 @@ export default function UserAvatar() {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Avatar>
-            <AvatarImage className="object-cover" src="./1622720820501.jpg" />
+            <AvatarImage className="object-cover" src="./austin.png" />
             <AvatarFallback>AD</AvatarFallback>
           </Avatar>
         </DropdownMenuTrigger>

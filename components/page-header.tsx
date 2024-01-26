@@ -11,7 +11,7 @@ export default function PageHeader() {
   }
 
   return (
-    <div className="z-100 sticky top-0">
+    <div className="z-100 sticky top-0 items-center justify-center">
       <div className="flex items-center space-x-2 border-b-2">
         <div>
           <Image
@@ -29,7 +29,7 @@ export default function PageHeader() {
           <div className="ml-4 mr-1">
             <FaBullhorn className="h-[20px] w-[20px] fill-zinc-400"></FaBullhorn>
           </div>
-          <span className="select-none text-zinc-600">Feedback?</span>
+          <span className="select-none pr-2 text-zinc-600">Feedback?</span>
         </div>
         <div>
           <UserAvatar></UserAvatar>
