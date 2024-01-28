@@ -51,7 +51,6 @@ export const UserAvatarSkeleton = ({ size }: UserAvatarSkeletonProps) => {
 export default function UserAvatarProfile() {
   const clerk = useClerk()
   const { user } = useUser()
-  console.log(user?.firstName)
   return (
     <div className="right-0 mr-4">
       <DropdownMenu>

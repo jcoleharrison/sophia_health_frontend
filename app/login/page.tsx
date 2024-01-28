@@ -12,7 +12,6 @@ import {
 export default function Home() {
   const { user } = useUser()
   const clerk = useClerk()
-  console.log(user)
   return (
     <div>
       <div>
