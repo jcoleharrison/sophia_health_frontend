@@ -18,6 +18,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { Textarea } from '../ui/textarea'
 
 type SoapElementCardProps = {
   soapElement: string
@@ -32,16 +33,15 @@ export default function SoapElementCard(props: SoapElementCardProps) {
         <CardDescription>{props.description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <form>
-          <div className="grid w-full items-center gap-4">
-            <div className="flex flex-col space-y-1.5">
-              <Input
-                id={props.soapElement.toLowerCase()}
-                placeholder={`${props.soapElement}...`}
-              />
-            </div>
+        <div className="grid w-full items-center gap-4">
+          <div className="flex flex-col space-y-1.5">
+            <Textarea
+              id={props.soapElement.toLowerCase()}
+              placeholder={`${props.soapElement}...`}
+              className="" // Adjust the height value as needed
+            />
           </div>
-        </form>
+        </div>
       </CardContent>
     </Card>
   )
