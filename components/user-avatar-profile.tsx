@@ -22,6 +22,8 @@ import {
   useUser,
   useSignUp,
 } from '@clerk/nextjs'
+import { useRouter } from 'next/navigation'
+import { User } from 'lucide-react'
 
 const avatarSizes = cva('', {
   variants: {
@@ -51,6 +53,7 @@ export const UserAvatarSkeleton = ({ size }: UserAvatarSkeletonProps) => {
 export default function UserAvatarProfile() {
   const clerk = useClerk()
   const { user } = useUser()
+  const router = useRouter()
   return (
     <div className="right-0 mr-4">
       <DropdownMenu>
@@ -58,8 +61,7 @@ export default function UserAvatarProfile() {
           <Avatar>
             <AvatarImage className="object-cover" src={user?.imageUrl} />
             <AvatarFallback>
-              {user?.firstName?.charAt(0)}
-              {user?.lastName?.charAt(0)}
+              <User />
             </AvatarFallback>
           </Avatar>
         </DropdownMenuTrigger>
@@ -68,11 +70,24 @@ export default function UserAvatarProfile() {
             {user?.firstName} {user?.lastName}
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>Profile</DropdownMenuItem>
-          <DropdownMenuItem>Billing</DropdownMenuItem>
-          <DropdownMenuItem>Team</DropdownMenuItem>
           <DropdownMenuItem>
-            <button onClick={() => clerk.signOut({})}>Sign Out</button>
+            <button
+              onClick={() => {
+                router.push('/user-profile')
+              }}
+            >
+              User Settings
+            </button>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <button
+              onClick={() => {
+                router.push('/logout')
+                clerk.signOut()
+              }}
+            >
+              Sign Out
+            </button>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

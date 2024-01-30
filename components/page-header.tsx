@@ -3,6 +3,7 @@
 import SearchBar from './search-bar'
 import { FaBullhorn } from 'react-icons/fa'
 import UserAvatar from './user-avatar'
+import UserAvatarProfile from './user-avatar-profile'
 import Image from 'next/image'
 
 export default function PageHeader() {
@@ -32,7 +33,7 @@ export default function PageHeader() {
           <span className="select-none pr-2 text-zinc-600">Feedback?</span>
         </div>
         <div>
-          <UserAvatar></UserAvatar>
+          <UserAvatarProfile></UserAvatarProfile>
         </div>
       </div>
     </div>
