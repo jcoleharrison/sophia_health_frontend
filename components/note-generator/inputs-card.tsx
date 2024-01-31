@@ -67,7 +67,7 @@ export default function InputsWrapperCard() {
               <Button onClick={handleRecordClick} disabled={isUploading}>
                 Record
               </Button>
-              <DialogUpload />
+              <DialogUpload></DialogUpload>
             </div>
             {/*3: Make card with two textareas in it: transcription and supplemental therapist notes   */}
           </form>
