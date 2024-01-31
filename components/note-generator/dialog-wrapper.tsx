@@ -49,12 +49,6 @@ export default function DialogUpload() {
           </TabsList>
           <TabsContent value="record"></TabsContent>
           <TabsContent value="upload">
-            <DialogHeader>
-              <DialogTitle>Record Session</DialogTitle>
-              <DialogDescription>
-                Upload an existing audio session.
-              </DialogDescription>
-            </DialogHeader>
             <form onSubmit={handleSubmit}>
               <div className="flex items-center space-x-2">
                 <div className="mb-2 grid flex-1 gap-2">
@@ -81,9 +75,15 @@ export default function DialogUpload() {
                   </Button>
                 </DialogClose>
               </DialogFooter>
-            </form>
+            </form>{' '}
           </TabsContent>
         </Tabs>
+        <DialogHeader>
+          <DialogTitle>Record Session</DialogTitle>
+          <DialogDescription>
+            Upload an existing audio session.
+          </DialogDescription>
+        </DialogHeader>
       </DialogContent>
     </Dialog>
   )
