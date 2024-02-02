@@ -16,7 +16,7 @@ import { Label } from '../ui/label'
 
 import { useState } from 'react'
 
-export default function DialogRecord() {
+export default function DialogRecordTab() {
   const [fileSubmitted, setFileSubmitted] = useState(false)
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
 

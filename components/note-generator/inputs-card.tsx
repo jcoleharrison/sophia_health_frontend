@@ -20,8 +20,7 @@ import {
 import SoapElementCard from './soap-element-card'
 
 import { useState } from 'react'
-import { Dialog } from '../ui/dialog'
-import DialogUpload from './dialog-upload'
+import DialogWrapper from './dialog-wrapper'
 
 export default function InputsWrapperCard() {
   const [isRecording, setIsRecording] = useState(false)
@@ -54,7 +53,7 @@ export default function InputsWrapperCard() {
               <Label htmlFor="session-type">Session Type</Label>
               <Select>
                 <SelectTrigger>
-                  <SelectValue>Individual</SelectValue>
+                  <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="individual">Individual</SelectItem>
@@ -64,10 +63,7 @@ export default function InputsWrapperCard() {
               </Select>
             </div>
             <div className="flex space-x-4">
-              <Button onClick={handleRecordClick} disabled={isUploading}>
-                Record
-              </Button>
-              <DialogUpload></DialogUpload>
+              <DialogWrapper />
             </div>
             {/*3: Make card with two textareas in it: transcription and supplemental therapist notes   */}
           </form>
