@@ -82,7 +82,7 @@ export default function UserAvatarProfile() {
           <DropdownMenuItem>
             <button
               onClick={() => {
-                router.push('/logout')
+                router.push('/loading')
                 clerk.signOut()
               }}
             >

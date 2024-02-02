@@ -25,7 +25,7 @@ export default authMiddleware({
     return NextResponse.next()
   },
   //   publicRoutes: ['((?!^/login/).*)'],
-  publicRoutes: ['/note-generator'],
+  publicRoutes: ['/note-generator', '/'],
 })
 
 export const config = {

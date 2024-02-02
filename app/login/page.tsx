@@ -1,13 +1,7 @@
 'use client'
 
 import UserAvatarProfile from '@/components/user-avatar-profile'
-import {
-  UserButton,
-  UserProfile,
-  currentUser,
-  useClerk,
-  useUser,
-} from '@clerk/nextjs'
+import { SignIn, UserButton, useClerk, useUser } from '@clerk/nextjs'
 
 export default function Home() {
   const { user } = useUser()
@@ -15,6 +9,7 @@ export default function Home() {
   return (
     <div>
       <div>
+        <SignIn />
         <UserButton />
         Hello {user?.firstName} {user?.lastName}
         <UserAvatarProfile />

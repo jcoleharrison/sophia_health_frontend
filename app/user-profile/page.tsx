@@ -8,15 +8,17 @@ export default function Home() {
   const { user } = useUser()
   const clerk = useClerk()
   return (
-    <div className="flex flex-grow justify-end">
-      <ScrollArea className="h-[100vh] w-[80%] ">
-        {' '}
-        <UserProfile
-          appearance={{
-            elements: {},
-          }}
-        />
-      </ScrollArea>
+    <div className="flex flex-grow justify-center">
+      {' '}
+      <UserProfile
+        appearance={{
+          elements: {
+            rootBox: 'shadow-none flex flex-grow',
+            card: 'shadow-none flex flex-grow',
+            scrollBox: 'rounded-none',
+          },
+        }}
+      />
     </div>
   )
 }
