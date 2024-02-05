@@ -4,6 +4,7 @@ import './globals.css'
 import PageHeader from '@/components/page-header'
 import Sidebar from '@/components/side-bar'
 import CardWithForm from '@/components/note-generator/soap-element-card'
+import { ClerkProvider } from '@clerk/nextjs'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,18 +21,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex h-screen flex-col">
-          <PageHeader />
-          <div className="flex flex-grow overflow-auto">
-            <Sidebar />
-            {children}
+        <ClerkProvider>
+          <div className="flex h-screen flex-col">
+            <PageHeader />
+            <div className="flex flex-grow overflow-auto">
+              <Sidebar />
+              {children}
+            </div>
           </div>
-        </div>
-        <div className="flex">
-          <Sidebar />
-          {children}
-        </div>
-
+        </ClerkProvider>
       </body>
     </html>
   )
