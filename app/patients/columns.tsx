@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button'
 // columns.tsx (client component) will contain our column definitions.
 import { ColumnDef } from '@tanstack/react-table'
 import { ArrowUpDown, MoreHorizontal } from 'lucide-react'
+import { ReactNode } from 'react'
 
 //This type is used t odefine the shape of our data
 //You can use a Zod schema here if you want
@@ -15,7 +16,7 @@ export type Patient = {
   status: 'Active' | 'Inactive'
 }
 
-export const columns: ColumnDef<Patient>[] = [
+export const columns: ColumnDef<Patient, ReactNode>[] = [
   {
     accessorKey: 'name',
     header: ({ column }) => {
@@ -30,6 +31,11 @@ export const columns: ColumnDef<Patient>[] = [
         </Button>
       )
     },
+    cell: (props) => (
+      <a className="underline" href={'/patients/' + props.row.id}>
+        {props.getValue()}
+      </a>
+    ),
   },
   {
     accessorKey: 'id',
