@@ -96,6 +96,9 @@ export default async function Home() {
 
   return (
     <div className="container mx-auto py-10">
+      <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+        Patient List
+      </h2>
       <DataTable columns={columns} data={data} />
     </div>
   )
