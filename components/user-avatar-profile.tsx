@@ -4,7 +4,6 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import { cn } from '@/lib/utils'
 import { Skeleton } from './ui/skeleton'
-import { useState } from 'react'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,15 +12,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from './ui/dropdown-menu'
-import {
-  currentUser,
-  SignIn,
-  SignInButton,
-  SignOutButton,
-  useClerk,
-  useUser,
-  useSignUp,
-} from '@clerk/nextjs'
+import { useClerk, useUser } from '@clerk/nextjs'
 import { useRouter } from 'next/navigation'
 import { User } from 'lucide-react'
 

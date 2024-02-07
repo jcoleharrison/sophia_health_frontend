@@ -2,7 +2,6 @@
 
 import SearchBar from './search-bar'
 import { FaBullhorn } from 'react-icons/fa'
-import UserAvatar from './user-avatar'
 import UserAvatarProfile from './user-avatar-profile'
 import Image from 'next/image'
 
