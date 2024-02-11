@@ -33,7 +33,10 @@ export const columns: ColumnDef<Patient, ReactNode>[] = [
       )
     },
     cell: (props) => (
-      <RouteButton url={'/patients/' + props.row.id} text={props.getValue()} />
+      <RouteButton
+        url={'/patients/' + props.row.original.id}
+        text={props.getValue()}
+      />
     ),
   },
   {
