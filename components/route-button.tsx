@@ -11,6 +11,7 @@ export default function RouteButton(props: RouteButtonProps) {
   return (
     <div>
       <button
+        className="underline"
         onClick={() => {
           router.push(props.url)
         }}
