@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { ColumnDef } from '@tanstack/react-table'
 import { ArrowUpDown, MoreHorizontal } from 'lucide-react'
 import { ReactNode } from 'react'
+import RouteButton from '@/components/route-button'
 
 //This type is used t odefine the shape of our data
 //You can use a Zod schema here if you want
@@ -32,9 +33,7 @@ export const columns: ColumnDef<Patient, ReactNode>[] = [
       )
     },
     cell: (props) => (
-      <a className="underline" href={'/patients/' + props.row.id}>
-        {props.getValue()}
-      </a>
+      <RouteButton url={'/patients/' + props.row.id} text={props.getValue()} />
     ),
   },
   {
