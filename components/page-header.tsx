@@ -22,7 +22,7 @@ export default function PageHeader() {
             className="m-4 object-contain"
           ></Image>
         </div>
-        <div className="flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
+        <div className="flex flex-1 flex-col overflow-y-auto overflow-x-hidden ml-9 sm:ml-16">
           <SearchBar></SearchBar>
         </div>
         <div className="flex items-center gap-2" onClick={handleFeedback}>
