@@ -1,6 +1,9 @@
 // page.tsx (server component) is where we'll fetch data and render our table.
+import { useRouter } from 'next/navigation'
 import { Patient, columns } from './columns'
 import { DataTable } from './data-table'
+import { ChevronRight } from 'lucide-react'
+import NavItem from '@/components/nav-item'
 async function getData(): Promise<Patient[]> {
   // Fetch data from your API here.
   return [
@@ -93,9 +96,13 @@ async function getData(): Promise<Patient[]> {
 
 export default async function Home() {
   const data = await getData()
-
   return (
-    <div className="container mx-auto py-10">
+    <div className="mx-50 container py-10">
+      <div className="flex">
+        <NavItem name="Home" route="/" />
+        <ChevronRight />
+        <span>Patients</span>
+      </div>
       <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
         Patient List
       </h2>

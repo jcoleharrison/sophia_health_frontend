@@ -1,5 +1,5 @@
 'use client'
-
+import { ChevronRight } from 'lucide-react'
 import {
   Table,
   TableBody,
@@ -9,15 +9,14 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { useSearchParams } from 'next/navigation'
-export default function Home() {
-  const searchParams = useSearchParams()
-  const search: any = searchParams.get('id')
+import { useRouter } from 'next/navigation'
 
+export default function Home({ params }: { params: { id: any } }) {
   const patientData = {
     sessions: [
       {
         id: 1,
+        name: 'Cole Harrison',
         sessionName: [
           {
             date: '2024-02-12',
@@ -63,6 +62,7 @@ export default function Home() {
       },
       {
         id: 2,
+        name: 'Steven Lim',
         sessionName: [
           {
             date: '2024-02-14',
@@ -114,35 +114,65 @@ export default function Home() {
         return i
       }
     }
+    return -1
   }
-  const currentUser: any = idMatch(search)
-  return (
-    <div className="flex grow">
-      <Table className="">
-        <TableHeader>
-          <TableRow>
-            <TableHead className="grow-[1]">Date</TableHead>
-            <TableHead className="grow-[2]">Session Name</TableHead>
-            <TableHead className="grow-[1]">Tools</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {patientData.sessions[currentUser].sessionName.map((x) => (
-            <TableRow>
-              <TableCell>
-                <h1>{x.date}</h1>
-              </TableCell>
-              <TableCell>
-                <h1>{x.sessionName}</h1>
-              </TableCell>
-              <TableCell>
-                <h1>Tool</h1>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-        <TableCaption>A list of your recent invoices.</TableCaption>
-      </Table>
-    </div>
-  )
+  const currentUser: any = idMatch(params.id)
+  const router = useRouter()
+
+  if (currentUser == -1) {
+    return <h1>USER NOT FOUND or PAGE NOT FOUND COMPONENT</h1>
+  } else {
+    return (
+      <div className="mx-50 container py-10">
+        <div className="flex grow flex-col">
+          <div className="flex">
+            <button onClick={() => router.push('/')} className="underline">
+              Home
+            </button>
+            <ChevronRight />
+            <button
+              onClick={() => router.push('/patients')}
+              className="underline"
+            >
+              Patients
+            </button>
+            <ChevronRight />
+            <span>{patientData.sessions[currentUser].name}</span>
+          </div>
+          <div className="mt-10 border-b ">
+            <h1 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+              Patient: {patientData.sessions[currentUser].name}
+            </h1>
+            <h1>Demographic 1: Detail</h1>
+            <h1>Demographic 2: Other Detail</h1>
+          </div>
+          <Table className="">
+            <TableHeader>
+              <TableRow>
+                <TableHead className="grow-[1]">Date</TableHead>
+                <TableHead className="grow-[2]">Session Name</TableHead>
+                <TableHead className="grow-[1]">Tools</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {patientData.sessions[currentUser].sessionName.map((x) => (
+                <TableRow key={'name'}>
+                  <TableCell>
+                    <h1>{x.date}</h1>
+                  </TableCell>
+                  <TableCell>
+                    <h1>{x.sessionName}</h1>
+                  </TableCell>
+                  <TableCell>
+                    <h1>Tool</h1>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+            <TableCaption>A list of your recent invoices.</TableCaption>
+          </Table>
+        </div>
+      </div>
+    )
+  }
 }
